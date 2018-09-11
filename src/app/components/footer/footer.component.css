@@ -1,0 +1,21 @@
+
+footer{
+    /* margin-top:0px !important; */
+    padding-bottom: 0%;
+    margin-bottom: 0%;
+    background-color:white;
+    color:#0b0513;
+  }
+  
+  .footer-copyright{
+      background-color:#040408; 
+      color: white;
+  }
+  
+  
+  .col-md-2 a:hover{
+    text-decoration: none
+  }
+
+
+ 

@@ -1,0 +1,67 @@
+.container{
+    padding-top: 7%;
+}
+
+.toggle-property{
+    padding-bottom: 5%;
+}
+.role-switcher{
+    border:1px solid #BEC0C2;
+    border-radius:30px;
+    color:#1f2836;
+    display:inline-flex;
+    overflow: hidden;
+    padding: 6px;
+    padding-bottom: 0px;
+        
+}
+.RoleSwitcher-radio{
+    position:absolute;
+    left:-10000px;
+    top:auto;
+    width:1px;
+    height:1px;
+    overflow: hidden;
+}
+[type=radio] {
+    box-sizing: border-box;
+    padding: 0;
+}
+.RoleSwitcher-radio:checked+.RoleSwitcher-label--tertiary {
+    background: linear-gradient(to bottom,#fc8c14 0,#f77d0e 100%);
+}
+.RoleSwitcher-radio:checked+.RoleSwitcher-label {
+    color: #F7F7F7;
+}
+
+
+.RoleSwitcher-radio:checked+.RoleSwitcher-label--tertiary {
+    background: -webkit-linear-gradient(top,#fc8c14 0,#f77d0e 100%);
+    background: linear-gradient(to bottom,#fc8c14 0,#f77d0e 100%);
+}
+.RoleSwitcher-radio:checked+.RoleSwitcher-label {
+    background-color: #135fda;
+    color: #F7F7F7;
+}
+.RoleSwitcher-label {
+    background-color: transparent;
+    border: none;
+    border-radius: inherit;
+    cursor: pointer;
+    display: inline-block;
+    padding: 4px 24px;
+}
+
+input {
+    text-rendering: auto;
+    color: initial;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: start;
+    margin: 0em;
+    font: 400 13.3333px Arial;
+}
