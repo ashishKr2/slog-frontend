@@ -1,9 +1,64 @@
+<div class="body">
+
 <div class="container">
-<div class="heading">
+  <div class="heading">
     <img src="../../assets/image/slog.png" alt="IMG" class="logo-size">
     <h3>Tell us what you need done</h3>
-    <p>Contact skilled freelancers within minutes. 
-      View profiles, ratings, portfolios and chat with them.
-       Pay the freelancer only when you are 100% satisfied with their work.</p>
+    <p>Contact skilled freelancers within minutes. View profiles, ratings, portfolios and chat with them. Pay the freelancer
+      only when you are 100% satisfied with their work.</p>
+  </div>
+</div>
+
+<div class="row text-center" style="margin-top:40px; ">
+  <div class="col-md-4">
+    <p style="padding-bottom:20px" >
+      <mat-form-field appearance="outline" >
+        <mat-label>Choose a name for your project</mat-label>
+        <input matInput placeholder="e.g. Build me a website">
+      </mat-form-field>
+    </p>
+      <mat-form-field>
+        <textarea matInput placeholder="Tell me more about your project"></textarea>
+      </mat-form-field>
+           
+  </div>
+  <div class="col-md-4">
+    <mat-form-field style="padding-bottom:65px">
+      <mat-select placeholder="How You want to pay">
+        <mat-option value="option">By Hour</mat-option>
+        <mat-option value="option">By Fixed Price</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <p>
+      <mat-form-field style="width:60px;padding-right: 10px">
+        <mat-select placeholder="INR">
+          <mat-option value="option">₹ </mat-option>
+          <mat-option value="option">$ </mat-option>
+        </mat-select>
+      </mat-form-field>
+      
+      <mat-form-field>
+        <mat-select placeholder="Project Size">
+          <mat-option value="option">Small (1000-10000)</mat-option>
+          <mat-option value="option">Large (10000-100000)</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </p>
+   
+  </div>
+  <div class="col-md-4">
+    <p style="padding-bottom:40px">
+      <mat-form-field appearance="outline">
+        <mat-label>What skills are required ?</mat-label>
+        <input matInput placeholder="Enter at least three skills">
+        <mat-hint>Web development, Android, Java</mat-hint>
+      </mat-form-field>
+    </p>
+   
+    <button mat-raised-button color="accent"  >Post My Project</button><br>
+    <p >By clicking 'Post My Project', you agree to the Terms & Conditions and Privacy Policy
+      Copyright © 2018 Slog.com</p>
+    
+  </div>
 </div>
 </div>
