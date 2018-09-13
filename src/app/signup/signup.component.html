@@ -4,7 +4,7 @@
       <h1>Sign up</h1>
       <div class="container1">
         <mat-form-field>
-          <input matInput  placeholder="Username *">
+          <input matInput placeholder="Username *">
         </mat-form-field>
 
         <mat-form-field>
@@ -25,13 +25,13 @@
         <button mat-button color="accent">Submit</button>
       </div>
     </div>
-    
+
     <div class="right">
       <span class="loginwith">Sign in with<br />social network</span>
-      
-      <button class="social-signin facebook">Log in with facebook</button>
-      <button class="social-signin twitter">Log in with Twitter</button>
-      <button class="social-signin google">Log in with Google+</button>
+
+      <button class="social-signin facebook" (click)="socialSignIn('facebook')">Log in with facebook</button>
+      <!-- <button class="social-signin twitter" (click)="socialSignIn('linkedin')">Log in with LinkedIn</button> -->
+      <button class="social-signin google" (click)="socialSignIn('google')">Log in with Google+</button>
     </div>
     <div class="or">OR</div>
   </div>
