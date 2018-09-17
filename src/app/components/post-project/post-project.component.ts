@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {NavbarService} from '../../services/navbar.service';
+import {NavbarService} from '../../shared/services/navbar.service';
 @Component({
   selector: 'app-post-project',
   templateUrl: './post-project.component.html',

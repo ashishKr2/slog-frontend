@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { NavbarService } from '../services/navbar.service';
+import { NavbarService } from '../shared/services/navbar.service';
 import { FormControl, Validators } from '@angular/forms';
 import { AuthService, FacebookLoginProvider, GoogleLoginProvider, LinkedinLoginProvider } from 'angular-6-social-login';
+import * as EmailValidator from 'email-validator';
+
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
@@ -41,6 +43,8 @@ export class SignupComponent implements OnInit {
   }
   ngOnInit() {
     this.nav.show();
+   // to validate email
+    console.log("./././", EmailValidator.validate("15681516416@gmail.cobauuua") );
 
 
   }

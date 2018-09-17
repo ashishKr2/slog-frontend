@@ -14,6 +14,8 @@ import { HomeComponent } from './home.component';
 // import { HomeNavbarComponent } from './home-navbar/home-navbar.component';
 import { HeaderHomeComponent } from './header-home/header-home.component';
 import { BodyHomeComponent } from './body-home/body-home.component';
+import {PostProjectModule} from '../components/post-project/postProject.module';
+import {BrowseJobsModule} from  '../components/browse-jobs/browseJobs.module';
 @NgModule({
     declarations: [
         HomeComponent,
@@ -31,7 +33,9 @@ import { BodyHomeComponent } from './body-home/body-home.component';
         FlashMessagesModule.forRoot(),
         BrowserAnimationsModule, // required animations module
         ToastrModule.forRoot(),
-        HomeMaterialModule
+        HomeMaterialModule,
+        PostProjectModule,
+        BrowseJobsModule
     ],
     providers: [],
     bootstrap: [HomeComponent],
