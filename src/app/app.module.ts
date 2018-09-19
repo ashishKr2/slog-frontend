@@ -19,18 +19,18 @@ import { SignupComponent } from './signup/signup.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { MainNavbarComponent } from './shared/main-navbar/main-navbar.component';
 
-import { AuthService } from './shared/services/auth.service';
+import { AuthServices } from './shared/services/auth.service';
 import { NavbarService } from './shared/services/navbar.service';
 import { LoginSocial } from './shared/services/loginSocial.service';
 import { SocialLoginModule, AuthServiceConfig } from "angular-6-social-login";
-
+import {AuthGuard} from './guards/auth.guard';
 @NgModule({
     declarations: [
         AppComponent,
         LoginComponent,
         SignupComponent,
         FooterComponent,
-        MainNavbarComponent
+        MainNavbarComponent,
     ],
     imports: [
         BrowserModule,
@@ -50,7 +50,7 @@ import { SocialLoginModule, AuthServiceConfig } from "angular-6-social-login";
 
     ],
     providers: [
-        NavbarService, AuthService,
+        NavbarService, AuthServices,AuthGuard,
         {
             provide: AuthServiceConfig,
             useFactory: LoginSocial

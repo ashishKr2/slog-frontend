@@ -1,4 +1,4 @@
-export class SignupModule{
+export class SignupModel{
     _id?:string;
     username:string;
     email:string;
