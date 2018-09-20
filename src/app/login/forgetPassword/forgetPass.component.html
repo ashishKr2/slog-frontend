@@ -1,0 +1,27 @@
+<a data-toggle="modal" style="cursor:pointer;color:rgb(0, 89, 255)" data-target="#myModal"> Forget Password ?</a>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Forget Password ..!!</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <form [formGroup]="myForm" (ngSubmit)="VerifyEmail()">
+                <div class="modal-body container">
+                    <mat-form-field class="form-group">
+                        <input matInput placeholder="Enter your email to reset Password " required formControlName="email" class="form-control">
+                         </mat-form-field>
+                    <br>
+                </div>
+                <div class="modal-footer">
+                    <button mat-button color="accent" >Verify Email</button>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</div>

@@ -15,6 +15,8 @@ import { AppMaterialModule } from './app-material.module';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
+import {PasswordResetComponent} from './components/passwordReset/passwordReset.component';
+import { ForgetPassComponent} from './login/forgetPassword/forgetPass.component';
 import { SignupComponent } from './signup/signup.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { MainNavbarComponent } from './shared/main-navbar/main-navbar.component';
@@ -31,6 +33,8 @@ import {AuthGuard} from './guards/auth.guard';
         SignupComponent,
         FooterComponent,
         MainNavbarComponent,
+        ForgetPassComponent,
+        PasswordResetComponent
     ],
     imports: [
         BrowserModule,

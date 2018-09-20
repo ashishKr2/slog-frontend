@@ -101,7 +101,6 @@ export class SignupComponent implements OnInit {
     }
     this.authService.signup(newUser)
       .subscribe(data => {
-        console.log("idknjd",data)
         if (data.success) {
           // this.flashmessage.show('You are now registered and can login', { cssClss: 'alert-success', timeout: 3000 });
           this.toastr.info('successfull');

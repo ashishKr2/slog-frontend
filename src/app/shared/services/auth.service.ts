@@ -21,6 +21,16 @@ export class AuthServices {
     headers=headers.append('Content-Type', 'application/json');
     return this.http.post('http://localhost:3000/login', user, { headers: headers });
   }
+  forgetPassword(user):Observable<any>{
+    let headers:HttpHeaders  = new HttpHeaders();
+    headers=headers.append('Content-Type', 'application/json');
+    return this.http.post('http://localhost:3000/forgetPassword', user, { headers: headers });
+  }
+  resetPassword(password):Observable<any>{
+    let headers:HttpHeaders  = new HttpHeaders();
+    headers=headers.append('Content-Type', 'application/json');
+    return this.http.put('http://localhost:3000/resetPassword',password,{headers:headers});
+  }
   getProfile(): Observable<any> {
     let headers:HttpHeaders  = new HttpHeaders();
     this.loadToken();

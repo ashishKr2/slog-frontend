@@ -41,6 +41,9 @@
           <a class="nav-link" routerLink="/signup" href=""><i class="fa fa-sign-in"></i> Sign Up</a>
         </li>
         <li class="nav-item" *ngIf="authService.loggedIn()">
+          <a class="nav-link" href="" routerLink="/dashboard" ><i class="fa fa-user"></i> Profile</a>
+        </li>
+        <li class="nav-item" *ngIf="authService.loggedIn()">
           <a class="nav-link" href="" routerLink="/login"  (click)="logoutSubmit()">Logout</a>
         </li>
         <li class="nav-item postProject">
