@@ -103,7 +103,7 @@ export class SignupComponent implements OnInit {
       .subscribe(data => {
         if (data.success) {
           // this.flashmessage.show('You are now registered and can login', { cssClss: 'alert-success', timeout: 3000 });
-          this.toastr.info('successfull');
+          this.toastr.info('Signup successfull');
           this.router.navigate(['/login']);
         }
         else {
