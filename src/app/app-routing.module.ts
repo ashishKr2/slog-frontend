@@ -5,6 +5,7 @@ import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { PasswordResetComponent } from './components/passwordReset/passwordReset.component';
 import { AuthGuard } from './guards/auth.guard';
+import { WelcomeComponent } from './components/welcome/welcome.component';
 
 const appRoutes: Routes = [
     { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -12,7 +13,7 @@ const appRoutes: Routes = [
     { path: 'login', component: LoginComponent },
     { path: 'signup', component: SignupComponent },
     { path: 'resetPass/:token', component: PasswordResetComponent },
-    // { path: 'verification/:token', component: LoginComponent },
+    { path: 'verification/:token', component: WelcomeComponent },
     { path: 'dashboard', loadChildren: './components/dashboard/dashboard.module#DashboardModule', canActivate: [AuthGuard] },
     { path: 'howItWorks', loadChildren: './components/how-it-works/howItWorks.module#HowItWorksModule' },
     { path: 'browseJobs', loadChildren: './components/browse-jobs/browseJobs.module#BrowseJobsModule' },

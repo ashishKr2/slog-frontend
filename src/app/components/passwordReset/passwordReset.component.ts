@@ -17,10 +17,11 @@ export class PasswordResetComponent implements OnInit {
   hide2 = false;
   token: string;
   x: string;
-  email: string;
+  username: string;
   password: string;
   cnfpassword: string;
   myForm: FormGroup;
+  
 
   constructor(public nav: NavbarService,
     private authService: AuthServices,
@@ -36,8 +37,8 @@ export class PasswordResetComponent implements OnInit {
     this.nav.show();
     this.token = this.route.snapshot.params['token'];
     this.x = window.location.origin;
-    this.email = this.token.substr(64);
-
+    this.username = this.token.substr(64);
+   
     this.myForm = this.fb.group({
       password: ['', Validators.required],
       cnfpassword: ['', Validators.required]
@@ -47,7 +48,8 @@ export class PasswordResetComponent implements OnInit {
 
   resetPassword() {
     const reset = {
-      email: this.email,
+      username: this.username,
+      token:this.token,
       password: this.myForm.value.password
     }
     if (this.myForm.controls.password.value != this.myForm.controls.cnfpassword.value) {

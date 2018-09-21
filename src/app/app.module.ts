@@ -20,6 +20,7 @@ import { ForgetPassComponent} from './login/forgetPassword/forgetPass.component'
 import { SignupComponent } from './signup/signup.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { MainNavbarComponent } from './shared/main-navbar/main-navbar.component';
+import {WelcomeComponent} from './components/welcome/welcome.component';
 
 import { AuthServices } from './shared/services/auth.service';
 import { NavbarService } from './shared/services/navbar.service';
@@ -34,7 +35,8 @@ import {AuthGuard} from './guards/auth.guard';
         FooterComponent,
         MainNavbarComponent,
         ForgetPassComponent,
-        PasswordResetComponent
+        PasswordResetComponent,
+        WelcomeComponent
     ],
     imports: [
         BrowserModule,
