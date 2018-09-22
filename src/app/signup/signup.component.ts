@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NavbarService } from '../shared/services/navbar.service';
 import { FormControl, Validators, FormGroup, FormBuilder } from '@angular/forms';
 import { FlashMessagesService } from 'angular2-flash-messages';
-import { Router } from '@angular/router';
+import { Router, CanActivate } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { AuthServices } from '../shared/services/auth.service';
 import { SignupModel } from '../shared/models/signup-model';
@@ -16,7 +16,7 @@ import { throwError } from 'rxjs';
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.css']
 })
-export class SignupComponent implements OnInit {
+export class SignupComponent implements OnInit, CanActivate {
   hide1 = false;
   hide2 = false;
   signup: SignupModel[] = [];
@@ -26,6 +26,7 @@ export class SignupComponent implements OnInit {
   password: string;
   cnfpassword: string;
   myForm: FormGroup;
+  socialName: string;
   // email = new FormControl('', [Validators.required, Validators.email]);
 
   // // email angular maretial validation
@@ -58,12 +59,21 @@ export class SignupComponent implements OnInit {
 
     this.socialAuthService.signIn(socialPlatformProvider).then(
       (userData) => {
-        console.log(socialPlatform + " sign in data : ", userData);
-        // Now sign-in with userData
-        // ...
-
+        this.socialName = userData.name;
+         this.toastr.info('Slog Validated Your Identity. Now You Can Signup ');
       }
     );
+  }
+  canActivate() {
+    if (this.socialName) {
+      console.log()
+      this.router.navigate(['/dashboard']);
+      return true;
+    }
+    else {
+      this.toastr.info("Somthing Went Wrong . Try signup manually");
+      return false;
+    }
   }
   // social media login ends
   ngOnInit() {
@@ -83,6 +93,7 @@ export class SignupComponent implements OnInit {
   Signup() {
     const newUser = {
       username: this.myForm.value.username,
+      name:this.socialName,
       email: this.myForm.value.email,
       password: this.myForm.value.password
     }
@@ -110,7 +121,7 @@ export class SignupComponent implements OnInit {
           this.toastr.info('Something Went wrong..');
 
         }
-      },error =>this.toastr.info(error.error.message)
+      }, error => this.toastr.info(error.error.message)
       );
 
   }

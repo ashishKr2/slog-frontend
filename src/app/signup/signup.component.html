@@ -2,36 +2,42 @@
   <div id="login-box">
     <div class="left">
       <form [formGroup]="myForm" (ngSubmit)="Signup()">
-      <h1>Sign up</h1>
-      <div class="container1">
-        <mat-form-field class="form-group">
-          <input matInput placeholder="Username" required formControlName="username" class="form-control">
-        </mat-form-field>
+        <h1>Sign up</h1>
+        <div class="container1">
+          <mat-form-field class="form-group">
+            <input matInput placeholder="Username" required formControlName="username" class="form-control">
+          </mat-form-field>
 
-        <mat-form-field class="form-group">
-          <input matInput placeholder="Enter your email" required formControlName="email" class="form-control">
-          <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
-        </mat-form-field>
+          <mat-form-field class="form-group">
+            <input matInput placeholder="Enter your email" required formControlName="email" class="form-control">
+            <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+          </mat-form-field>
 
-        <mat-form-field class="form-group">
-          <input matInput placeholder="Enter your password" required formControlName="password" class="form-control" [type]="hide1 ? 'text' : 'password'">
-          <mat-icon matSuffix (click)="hide1 = !hide1">{{hide1 ? 'visibility_off' : 'visibility'}}</mat-icon>
-        </mat-form-field>
+          <mat-form-field class="form-group">
+            <input matInput placeholder="Enter your password" required formControlName="password" class="form-control"
+              [type]="hide1 ? 'text' : 'password'">
+            <mat-icon matSuffix (click)="hide1 = !hide1">{{hide1 ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </mat-form-field>
 
-        <mat-form-field class="form-group">
-          <input matInput placeholder="Re-enter your password" required formControlName="cnfpassword" class="form-control" [type]="hide2 ? 'text' : 'password'">
-          <mat-icon matSuffix (click)="hide2 = !hide2">{{hide2 ? 'visibility_off' : 'visibility'}}</mat-icon>
-        </mat-form-field>
-        <button mat-button color="accent">Submit</button>
-      </div>
-    </form>
+          <mat-form-field class="form-group">
+            <input matInput placeholder="Re-enter your password" required formControlName="cnfpassword" class="form-control"
+              [type]="hide2 ? 'text' : 'password'">
+            <mat-icon matSuffix (click)="hide2 = !hide2">{{hide2 ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </mat-form-field>
+          <button mat-button color="accent">Submit</button>
+        </div>
+      </form>
     </div>
 
-    <div class="right" >
-      <span class="loginwith">Sign in with<br />social network</span>
-<br>
-      <button class="social-signin facebook" (click)="socialSignIn('facebook')">Log in with facebook</button>
-      <button class="social-signin google" (click)="socialSignIn('google')">Log in with Google+</button>
+    <div class="right">
+
+      <span class="loginwith">
+        <h1>Optional</h1>Verify Your Identity<br />with social network
+        <h6> Slog save this data for future profile updation</h6>
+      </span>
+      <br>
+      <button class="social-signin facebook" (click)="socialSignIn('facebook')">Verify with facebook</button>
+      <button class="social-signin google" (click)="socialSignIn('google')">Verify with Google+</button>
     </div>
     <div class="or">OR</div>
   </div>
