@@ -3,7 +3,6 @@ export class postProjectModel{
     projectName:string;
     projectDetail:string;
     paymentMode:string;
-    inr:string;
     projectSize:string;
     skills:string;
     

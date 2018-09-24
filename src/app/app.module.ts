@@ -52,7 +52,7 @@ import {AuthGuard} from './guards/auth.guard';
         ToastrModule.forRoot(),
         HomeModule,
         AppMaterialModule,
-        SocialLoginModule
+        SocialLoginModule,
 
     ],
     providers: [

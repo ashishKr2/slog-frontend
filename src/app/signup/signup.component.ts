@@ -16,7 +16,7 @@ import { throwError } from 'rxjs';
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.css']
 })
-export class SignupComponent implements OnInit, CanActivate {
+export class SignupComponent implements OnInit {
   hide1 = false;
   hide2 = false;
   signup: SignupModel[] = [];
@@ -63,17 +63,8 @@ export class SignupComponent implements OnInit, CanActivate {
          this.toastr.info('Slog Validated Your Identity. Now You Can Signup ');
       }
     );
-  }
-  canActivate() {
-    if (this.socialName) {
-      console.log()
-      this.router.navigate(['/dashboard']);
-      return true;
-    }
-    else {
-      this.toastr.info("Somthing Went Wrong . Try signup manually");
-      return false;
-    }
+  
+
   }
   // social media login ends
   ngOnInit() {

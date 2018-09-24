@@ -73,4 +73,10 @@ export class AuthServices {
     this.user = null;
     localStorage.clear();
   }
+
+  postProject(project):Observable<any>{
+    let headers:HttpHeaders  = new HttpHeaders();
+    headers=headers.append('Content-Type', 'application/json');
+    return this.http.post('http://localhost:3000/postProject',project,{headers:headers});
+  }
 }

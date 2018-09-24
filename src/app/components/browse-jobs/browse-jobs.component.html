@@ -1,3 +1,96 @@
 <div class="container">
-        Fetching data ..................!!!!
+  <div class="row">
+    <div class="col-md-3">
+      <mat-card>
+        <div class="row">
+          <div class="col-md-1">
+            <mat-icon>search</mat-icon>
+          </div>
+          <div class="col-md-2">
+            <mat-form-field>
+              <input matInput placeholder="Search">
+            </mat-form-field>
+          </div>
+        </div>
+      </mat-card>
+    </div>
+    <div class="col-md-9">
+      <mat-card>
+        <div class="row">
+          <div class="col-md-1">
+            <mat-icon>add_location</mat-icon>
+          </div>
+          <form class="example-form">
+            <mat-form-field class="example-full-width">
+              <input type="text" placeholder="Location" aria-label="Number" matInput [formControl]="myControl"
+                [matAutocomplete]="auto">
+              <mat-autocomplete #auto="matAutocomplete">
+                <mat-option *ngFor="let option of options" [value]="option">
+                  {{option}}
+                </mat-option>
+              </mat-autocomplete>
+            </mat-form-field>
+          </form>
+        </div>
+      </mat-card>
+    </div>
+  </div>
+  <div class="row" style="padding-top:5px">
+    <!-- left side -->
+    <div class="col-md-3">
+      <mat-card>
+        <h5>Filter By</h5>
+        <mat-form-field>
+          <input matInput placeholder="abc">
+        </mat-form-field>
+        <h5>Type</h5>
+        <mat-form-field>
+          <input matInput placeholder="abc">
+        </mat-form-field>
+        <h5>Skills</h5>
+        <mat-form-field>
+          <input matInput placeholder="abc">
+        </mat-form-field>
+        <h5>Language</h5>
+        <mat-form-field>
+          <input matInput placeholder="abc">
+        </mat-form-field>
+      </mat-card>
+    </div>
+    <!-- right side -->
+    <div class="col-md-9">
+      <mat-card>
+        <div class="row">
+          <div class="col-md-1" style="padding-right: 30%">
+            <mat-form-field>
+              <mat-select placeholder="Sort By">
+                <mat-option value="option">Option</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div class="col-md-8">
+            <mat-paginator [length]="100" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]">
+            </mat-paginator>
+          </div>
+        </div>
+        <!-- row 1 end here -->
+        <!-- data row -->
+        <div class="row">
+          <div class="col-md-8" style="padding-right:15%">
+            <p>headingnjjvfvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv vvvvvvvvvvvvvvvvvvvvv
+              vvvvvvvvvvvvvvvvvvvvvvv vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+              vvvvv </p>
+            <p>body</p>
+            <p>skills</p>
+          </div>
+          <div class="col-md-1" style="padding-left: 15%">
+            <p>Price</p>
+            <button>Bid</button>
+          </div>
+        </div>
+        <!-- data row ends here -->
+      </mat-card>
+    </div>
+  </div>
+  <!-- right side ends here -->
 </div>

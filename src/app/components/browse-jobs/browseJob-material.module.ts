@@ -12,8 +12,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatCheckboxModule } from '@angular/material/checkbox';
-import { MatOptionModule, MatSelectModule, MatRadioModule } from '@angular/material'
-
+import { MatOptionModule, MatSelectModule, MatRadioModule } from '@angular/material';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import {MatPaginatorModule} from '@angular/material/paginator';
 @NgModule({
     imports: [
         MatMenuModule,
@@ -33,7 +34,8 @@ import { MatOptionModule, MatSelectModule, MatRadioModule } from '@angular/mater
         MatInputModule,
         MatOptionModule,
         MatSelectModule, MatRadioModule,
-        // MatBottomSheet, MatBottomSheetRef
+        MatAutocompleteModule,
+        MatPaginatorModule
 
     ],
     exports: [
@@ -53,8 +55,8 @@ import { MatOptionModule, MatSelectModule, MatRadioModule } from '@angular/mater
         MatFormFieldModule,
         MatInputModule,
         MatOptionModule,
-        MatSelectModule, MatRadioModule,
-        // MatBottomSheet, MatBottomSheetRef
+        MatSelectModule, MatRadioModule,MatAutocompleteModule,
+        MatPaginatorModule
     ],
 })
-export class HomeMaterialModule { }
+export class BrowseJobMaterialModule { }

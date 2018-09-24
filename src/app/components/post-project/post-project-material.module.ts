@@ -13,7 +13,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatOptionModule, MatSelectModule, MatRadioModule } from '@angular/material'
-
+import {MatStepperModule} from '@angular/material/stepper';
 @NgModule({
     imports: [
         MatMenuModule,
@@ -32,7 +32,8 @@ import { MatOptionModule, MatSelectModule, MatRadioModule } from '@angular/mater
         MatFormFieldModule,
         MatInputModule,
         MatOptionModule,
-        MatSelectModule, MatRadioModule
+        MatSelectModule, MatRadioModule,
+        MatStepperModule
 
     ],
     exports: [
@@ -52,7 +53,8 @@ import { MatOptionModule, MatSelectModule, MatRadioModule } from '@angular/mater
         MatFormFieldModule,
         MatInputModule,
         MatOptionModule,
-        MatSelectModule, MatRadioModule
+        MatSelectModule, MatRadioModule,
+        MatStepperModule
     ],
 })
 export class PostProjectMaterialModule { }

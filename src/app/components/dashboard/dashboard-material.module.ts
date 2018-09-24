@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-// import {MatBottomSheet, MatBottomSheetRef} from '@angular/material';
+import { MatButtonToggleModule, MatExpansionModule} from '@angular/material';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatGridListModule } from '@angular/material/grid-list';
@@ -10,10 +10,11 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import {MatTabsModule} from '@angular/material/tabs';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatOptionModule, MatSelectModule, MatRadioModule } from '@angular/material'
-
+import 'hammerjs';
 @NgModule({
     imports: [
         MatMenuModule,
@@ -33,8 +34,8 @@ import { MatOptionModule, MatSelectModule, MatRadioModule } from '@angular/mater
         MatInputModule,
         MatOptionModule,
         MatSelectModule, MatRadioModule,
-        // MatBottomSheet, MatBottomSheetRef
-
+        MatButtonToggleModule, MatExpansionModule,
+        MatTabsModule
     ],
     exports: [
         MatMenuModule,
@@ -54,7 +55,8 @@ import { MatOptionModule, MatSelectModule, MatRadioModule } from '@angular/mater
         MatInputModule,
         MatOptionModule,
         MatSelectModule, MatRadioModule,
-        // MatBottomSheet, MatBottomSheetRef
+        MatButtonToggleModule, MatExpansionModule,
+        MatTabsModule
     ],
 })
-export class HomeMaterialModule { }
+export class DashboardMaterialModule { }

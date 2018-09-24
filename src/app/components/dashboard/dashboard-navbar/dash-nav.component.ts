@@ -9,7 +9,7 @@ export class DashNavComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-   
+
   }
 
 }

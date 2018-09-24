@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {NavbarService} from '../../shared/services/navbar.service';
+
 @Component({
   selector: 'app-how-it-works',
   templateUrl: './how-it-works.component.html',

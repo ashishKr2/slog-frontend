@@ -1,7 +1,32 @@
 .container{
-    padding-top: 5%; 
+    padding-top: 8%;
+    padding-bottom: 2%; 
     
 }
 .row{
     background-color: rgba(0, 255, 128, 0.411)
+}
+.stepper{
+    padding-bottom: 10%;
+    background-image: url("../../../assets/image/login.png");
+    background-color: rgb(245, 245, 245);
+    align-content: center;
+    align-items: center;
+    align-self: center;
+    text-align: center;
+    background-size: 100%
+    
+    
+}
+.field{
+    block-size: 200%;
+    width: 100%;
+    min-width: 450px;
+    max-width: 500px;
+    padding-top: 7%
+     
+}
+.body{
+    /* background-color: aliceblue */
+    background-color: rgb(145, 201, 250)
 }
