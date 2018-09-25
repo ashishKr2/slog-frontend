@@ -3,6 +3,7 @@ import {NavbarService} from '../../shared/services/navbar.service';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {AuthServices} from '../../shared/services/auth.service';
 import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-post-project',
@@ -22,10 +23,12 @@ export class PostProjectComponent implements OnInit {
   skills:string;
   user:string;
   user1:string;
+
   constructor(public nav:NavbarService,
     private _formBuilder: FormBuilder,
     private authService:AuthServices,
-    private toastr:ToastrService
+    private toastr:ToastrService,
+    private router:Router
 
     ) { }
 
@@ -34,22 +37,29 @@ export class PostProjectComponent implements OnInit {
     this.authService.getProfile().subscribe(profile => {
       this.user = profile.user;
       this.user1 = profile.user.username;
+      if(this.user){
+        this.projectName= localStorage.getItem('projectName');
+        this.projectDetail=localStorage.getItem('projectDetail');
+        this.projectSize=localStorage.getItem('projectSize');
+        this.paymentMode=localStorage.getItem('paymentMode');
+        this.skills=localStorage.getItem('skills');
+       }
   });
 
     this.firstFormGroup = this._formBuilder.group({
-      firstCtrl: ['', Validators.required]
+      firstCtrl: [localStorage.getItem('projectName'), Validators.required]
     });
     this.secondFormGroup = this._formBuilder.group({
-      secondCtrl: ['', Validators.required]
+      secondCtrl: [localStorage.getItem('projectDetail'), Validators.required]
     });
     this.thirdFormGroup = this._formBuilder.group({
-      thirdCtrl: ['', Validators.required]
+      thirdCtrl: [localStorage.getItem('paymentMode'), Validators.required]
     });
     this.fourthFormGroup = this._formBuilder.group({
-      fourthCtrl: ['', Validators.required]
+      fourthCtrl: [localStorage.getItem('projectSize'), Validators.required]
     });
     this.fifthFormGroup = this._formBuilder.group({
-      fifthCtrl: ['', Validators.required]
+      fifthCtrl: [localStorage.getItem('skills'), Validators.required]
     });
    
   }
@@ -69,10 +79,17 @@ export class PostProjectComponent implements OnInit {
         if(data.success){
           this.toastr.info("Post project successfully")
         }
+        
       });
     }
     else{
-      this.toastr.info("Login first ...!!")
+      this.toastr.info("Login first ...!!");    
+      localStorage.setItem("projectName",project.projectName);
+      localStorage.setItem("projectDetail",project.projectDetail);
+      localStorage.setItem("paymentMode",project.paymentMode);
+      localStorage.setItem("projectSize",project.projectSize);
+      localStorage.setItem("skills",project.skills);  
+      this.router.navigate(['/login']);
     }
     
   }

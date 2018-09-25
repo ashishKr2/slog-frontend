@@ -9,13 +9,14 @@
   </div>
 </div>
 
-<mat-horizontal-stepper class="stepper" #stepper linear>
+<mat-horizontal-stepper class="stepper" #stepper>
 
   <mat-step [stepControl]="firstFormGroup">
     <form [formGroup]="firstFormGroup">
       <ng-template matStepLabel>Choose a name for your project</ng-template>
       <mat-form-field class="field">
-        <input  matInput placeholder="e.g. Build me a website" formControlName="firstCtrl" required>
+        <input  matInput placeholder="e.g. Build me a website" value={{projectName}} formControlName="firstCtrl" required>
+       
       </mat-form-field>
       <div>
         <button mat-button matStepperNext>Next</button>
@@ -26,8 +27,8 @@
   <mat-step [stepControl]="secondFormGroup">
     <form [formGroup]="secondFormGroup">
       <ng-template matStepLabel>Tell me more about your project</ng-template>
-      <mat-form-field class="field">
-        <textarea matInput rows="5" cols="50" class="field" placeholder="In detail" formControlName="secondCtrl" required></textarea>
+      <mat-form-field  class="text-area">
+        <textarea matInput  class="field" rows="5" cols="50"  value={{projectDetail}}  placeholder="In detail" formControlName="secondCtrl" required></textarea>
       </mat-form-field>
       <div>
         <button mat-button matStepperPrevious>Back</button>
@@ -40,7 +41,7 @@
     <form [formGroup]="thirdFormGroup">
       <ng-template matStepLabel>How You want to pay</ng-template>
       <mat-form-field class="field">
-        <input matInput class="field" placeholder="By hour/Fixed price" formControlName="thirdCtrl" required>
+        <input matInput  placeholder="By hour/Fixed price" value={{paymentMode}} formControlName="thirdCtrl" required>
       </mat-form-field>
       <div>
         <button mat-button matStepperPrevious>Back</button>
@@ -53,7 +54,7 @@
     <form [formGroup]="fourthFormGroup">
       <ng-template matStepLabel>Project Size</ng-template>
       <mat-form-field class="field">
-        <input matInput class="field" placeholder="₹/$ Small(500-1000)" formControlName="fourthCtrl" required>
+        <input matInput  placeholder="₹/$ Small(500-1000)" id="projectSize" value={{projectSize}} formControlName="fourthCtrl" required>
       </mat-form-field>
       <div>
         <button mat-button matStepperPrevious>Back</button>
@@ -65,7 +66,7 @@
     <form [formGroup]="fifthFormGroup">
       <ng-template matStepLabel>What skills are required ?</ng-template>
       <mat-form-field class="field">
-        <input matInput class="field" placeholder="Web development, Android, Java" formControlName="fifthCtrl" required>
+        <input matInput  placeholder="Web development, Android, Java" id="skills" value={{skills}} formControlName="fifthCtrl" required>
       </mat-form-field>
       <div>
         <button mat-button matStepperPrevious>Back</button>
@@ -75,69 +76,15 @@
   </mat-step>
   <mat-step>
     <ng-template matStepLabel>Done</ng-template>
-  <span style="margin-left: 40px; color: blue">Post My Project</span>  
-    <div>
-      <button mat-button (click)="submit()">Submit</button>
+  <span style="color: blue;padding-top:1% ">Post My Project</span>  
+    <div style="padding-top: 3%">      
       <button mat-button matStepperPrevious>Back</button>
+      <button mat-button (click)="submit()">Submit</button>
       <button mat-button (click)="stepper.reset()">Reset</button>
     </div>
-    <p style="align-content: center; margin-left: 20%;color: blue">By clicking 'Submit', you agree to the Terms & Conditions and Privacy Policy
+    <p style="color: blue; padding-top: 2%;padding-bottom: 3%"><span style="color:rgb(47, 255, 57)">✔</span> By clicking <span style="color:rgb(47, 255, 57)">Submit</span>, you agree to the Terms & Conditions and Privacy Policy
         Copyright © 2018 Slog.com</p>
   </mat-step>
   
 </mat-horizontal-stepper>
-
-<!-- 
-<div class="row text-center" style="margin-top:40px; ">
-  <div class="col-md-4">
-    <p style="padding-bottom:20px" >
-      <mat-form-field appearance="outline" >
-        <mat-label>Choose a name for your project</mat-label>
-        <input matInput placeholder="e.g. Build me a website">
-      </mat-form-field>
-    </p>
-      <mat-form-field>
-        <textarea matInput placeholder="Tell me more about your project"></textarea>
-      </mat-form-field>
-           
-  </div>
-  <div class="col-md-4">
-    <mat-form-field style="padding-bottom:65px">
-      <mat-select placeholder="How You want to pay">
-        <mat-option value="option">By Hour</mat-option>
-        <mat-option value="option">By Fixed Price</mat-option>
-      </mat-select>
-    </mat-form-field>
-    <p>
-      <mat-form-field style="width:60px;padding-right: 10px">
-        <mat-select placeholder="INR">
-          <mat-option value="option">₹ </mat-option>
-          <mat-option value="option">$ </mat-option>
-        </mat-select>
-      </mat-form-field>
-      
-      <mat-form-field>
-        <mat-select placeholder="Project Size">
-          <mat-option value="option">Small (1000-10000)</mat-option>
-          <mat-option value="option">Large (10000-100000)</mat-option>
-        </mat-select>
-      </mat-form-field>
-    </p>
-   
-  </div>
-  <div class="col-md-4">
-    <p style="padding-bottom:40px">
-      <mat-form-field appearance="outline">
-        <mat-label>What skills are required ?</mat-label>
-        <input matInput placeholder="Enter at least three skills">
-        <mat-hint>Web development, Android, Java</mat-hint>
-      </mat-form-field>
-    </p>
-   
-    <button mat-raised-button color="accent"  >Post My Project</button><br>
-    <p >By clicking 'Post My Project', you agree to the Terms & Conditions and Privacy Policy
-      Copyright © 2018 Slog.com</p>
-    
-  </div> -->
-<!-- </div> -->
 </div>

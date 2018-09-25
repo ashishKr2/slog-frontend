@@ -15,6 +15,8 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatOptionModule, MatSelectModule, MatRadioModule } from '@angular/material';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatListModule} from '@angular/material/list';
 @NgModule({
     imports: [
         MatMenuModule,
@@ -35,7 +37,9 @@ import {MatPaginatorModule} from '@angular/material/paginator';
         MatOptionModule,
         MatSelectModule, MatRadioModule,
         MatAutocompleteModule,
-        MatPaginatorModule
+        MatPaginatorModule,
+        MatDividerModule,
+        MatListModule
 
     ],
     exports: [
@@ -56,7 +60,9 @@ import {MatPaginatorModule} from '@angular/material/paginator';
         MatInputModule,
         MatOptionModule,
         MatSelectModule, MatRadioModule,MatAutocompleteModule,
-        MatPaginatorModule
+        MatPaginatorModule,
+        MatDividerModule,
+        MatListModule
     ],
 })
 export class BrowseJobMaterialModule { }

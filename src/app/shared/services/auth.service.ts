@@ -79,4 +79,9 @@ export class AuthServices {
     headers=headers.append('Content-Type', 'application/json');
     return this.http.post('http://localhost:3000/postProject',project,{headers:headers});
   }
+  browseJob():Observable<any>{
+    let headers:HttpHeaders  = new HttpHeaders();
+    headers=headers.append('Content-Type', 'application/json');
+    return this.http.post('http://localhost:3000/browseJob',{headers:headers});
+  }
 }

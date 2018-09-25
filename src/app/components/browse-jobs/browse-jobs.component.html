@@ -6,8 +6,8 @@
           <div class="col-md-1">
             <mat-icon>search</mat-icon>
           </div>
-          <div class="col-md-2">
-            <mat-form-field>
+          <div class="col-md-2 ">
+            <mat-form-field class="width-form">
               <input matInput placeholder="Search">
             </mat-form-field>
           </div>
@@ -40,19 +40,19 @@
     <div class="col-md-3">
       <mat-card>
         <h5>Filter By</h5>
-        <mat-form-field>
+        <mat-form-field class="width-form">
           <input matInput placeholder="abc">
         </mat-form-field>
         <h5>Type</h5>
-        <mat-form-field>
+        <mat-form-field class="width-form">
           <input matInput placeholder="abc">
         </mat-form-field>
         <h5>Skills</h5>
-        <mat-form-field>
+        <mat-form-field class="width-form">
           <input matInput placeholder="abc">
         </mat-form-field>
         <h5>Language</h5>
-        <mat-form-field>
+        <mat-form-field class="width-form">
           <input matInput placeholder="abc">
         </mat-form-field>
       </mat-card>
@@ -75,19 +75,19 @@
         </div>
         <!-- row 1 end here -->
         <!-- data row -->
-        <div class="row">
-          <div class="col-md-8" style="padding-right:15%">
-            <p>headingnjjvfvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv vvvvvvvvvvvvvvvvvvvvv
-              vvvvvvvvvvvvvvvvvvvvvvv vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-              vvvvv </p>
-            <p>body</p>
-            <p>skills</p>
+        <div class="row" *ngFor="let job of jobs" style="padding-bottom: 3%;">
+          <div class="col-md-8" style="padding-right:15%;padding-top: 3%">
+            <b>{{job.projectName}} </b>
+            <p>{{job.projectDetail}}</p>
+            <p style="color: rgba(18, 138, 250, 0.938)">{{job.skills}}</p>
           </div>
-          <div class="col-md-1" style="padding-left: 15%">
-            <p>Price</p>
-            <button>Bid</button>
+          <div class="col-md-1" style="padding-left: 15%;padding-top: 3%">
+            <p>{{job.projectSize}}</p>
+            <button mat-raised-button style="background-color: rgb(82, 255, 47); color: white"><b>Bid</b></button>
           </div>
+          <mat-divider></mat-divider>
         </div>
+
         <!-- data row ends here -->
       </mat-card>
     </div>

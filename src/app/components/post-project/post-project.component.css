@@ -26,6 +26,13 @@
     padding-top: 7%
      
 }
+.text-area{
+    max-width: 500px;
+    width: 100%;
+    min-width: 450px;
+    max-width: 500px;
+    
+}
 .body{
     /* background-color: aliceblue */
     background-color: rgb(145, 201, 250)
