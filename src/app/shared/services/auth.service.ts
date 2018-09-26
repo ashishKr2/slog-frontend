@@ -9,38 +9,34 @@ export class AuthServices {
   authToken: any;
   user: any;
   constructor(private http: HttpClient) { }
-
+  header() {
+    return new HttpHeaders({ 'Content-Type': 'application/json; charset=utf-8' });
+  }
   signup(user): Observable<any> {
-    let headers:HttpHeaders  = new HttpHeaders();
-    headers = headers.append('Content-Type', 'application/json');
-    return this.http.post('http://localhost:3000/signup', user, { headers: headers });
+    return this.http.post('http://localhost:3000/signup', user, { headers: this.header() });
+  }
 
-  }
   login(user): Observable<any> {
-    let headers:HttpHeaders  = new HttpHeaders();
-    headers=headers.append('Content-Type', 'application/json');
-    return this.http.post('http://localhost:3000/login', user, { headers: headers });
+    return this.http.post('http://localhost:3000/login', user, { headers: this.header() });
   }
-  forgetPassword(user):Observable<any>{
-    let headers:HttpHeaders  = new HttpHeaders();
-    headers=headers.append('Content-Type', 'application/json');
-    return this.http.post('http://localhost:3000/forgetPassword', user, { headers: headers });
+
+  forgetPassword(user): Observable<any> {
+    return this.http.post('http://localhost:3000/forgetPassword', user, { headers: this.header() });
   }
-  resetPassword(password):Observable<any>{
-    let headers:HttpHeaders  = new HttpHeaders();
-    headers=headers.append('Content-Type', 'application/json');
-    return this.http.put('http://localhost:3000/resetPassword',password,{headers:headers});
+
+  resetPassword(password): Observable<any> {
+    return this.http.put('http://localhost:3000/resetPassword', password, { headers: this.header() });
   }
-  verifivationEmail(data):Observable<any>{
-    let headers:HttpHeaders  = new HttpHeaders();
-    headers=headers.append('Content-Type', 'application/json');
-    return this.http.post('http://localhost:3000/verification',data,{headers:headers});
+
+  verifivationEmail(data): Observable<any> {
+    return this.http.post('http://localhost:3000/verification', data, { headers: this.header() });
   }
+
   getProfile(): Observable<any> {
-    let headers:HttpHeaders  = new HttpHeaders();
+    let headers: HttpHeaders = new HttpHeaders();
     this.loadToken();
     headers = headers.append('Authorization', this.authToken);
-    return this.http.get('http://localhost:3000/profile', { headers: headers });
+    return this.http.get('http://localhost:3000/profile', { headers: headers })
   }
   storeUserData(token, user) {
     localStorage.setItem('id_token', token);
@@ -74,14 +70,10 @@ export class AuthServices {
     localStorage.clear();
   }
 
-  postProject(project):Observable<any>{
-    let headers:HttpHeaders  = new HttpHeaders();
-    headers=headers.append('Content-Type', 'application/json');
-    return this.http.post('http://localhost:3000/postProject',project,{headers:headers});
+  postProject(project): Observable<any> {
+    return this.http.post('http://localhost:3000/postProject', project, { headers: this.header() });
   }
-  browseJob():Observable<any>{
-    let headers:HttpHeaders  = new HttpHeaders();
-    headers=headers.append('Content-Type', 'application/json');
-    return this.http.post('http://localhost:3000/browseJob',{headers:headers});
+  browseJob(): Observable<any> {
+    return this.http.post('http://localhost:3000/browseJob', { headers: this.header() });
   }
 }

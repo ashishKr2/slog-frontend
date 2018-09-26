@@ -9,6 +9,7 @@ import { MyProjectComponent } from './myProjects/myProject.component';
 import { ProfileComponent } from './profile/profile.component';
 import { DashboardMaterialModule } from './dashboard-material.module';
 import { DashComponent } from './dash/dash.component';
+import { CurrentWorkingComponent } from './currentWorking/currentWorking.component';
 const appRoutes: Routes = [
   { path: '', component: DashboardComponent }
 ];
@@ -26,7 +27,8 @@ const appRoutes: Routes = [
     InboxComponent,
     MyProjectComponent,
     ProfileComponent,
-    DashComponent
+    DashComponent,
+    CurrentWorkingComponent
 
   ]
 })

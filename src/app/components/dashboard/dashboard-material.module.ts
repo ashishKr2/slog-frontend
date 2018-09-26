@@ -13,7 +13,8 @@ import { MatInputModule } from '@angular/material/input';
 import {MatTabsModule} from '@angular/material/tabs';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatCheckboxModule } from '@angular/material/checkbox';
-import { MatOptionModule, MatSelectModule, MatRadioModule } from '@angular/material'
+import { MatOptionModule, MatSelectModule, MatRadioModule } from '@angular/material';
+import {MatDividerModule} from '@angular/material/divider';
 import 'hammerjs';
 @NgModule({
     imports: [
@@ -35,7 +36,8 @@ import 'hammerjs';
         MatOptionModule,
         MatSelectModule, MatRadioModule,
         MatButtonToggleModule, MatExpansionModule,
-        MatTabsModule
+        MatTabsModule,
+        MatDividerModule
     ],
     exports: [
         MatMenuModule,
@@ -56,7 +58,8 @@ import 'hammerjs';
         MatOptionModule,
         MatSelectModule, MatRadioModule,
         MatButtonToggleModule, MatExpansionModule,
-        MatTabsModule
+        MatTabsModule,
+        MatDividerModule
     ],
 })
 export class DashboardMaterialModule { }

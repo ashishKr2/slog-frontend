@@ -1,0 +1,19 @@
+<div>
+    <mat-card>
+        <!-- data row -->
+        <div class="row" *ngFor="let data of datas" style="padding-bottom: 3%;">
+            <div class="col-md-8" style="padding-right:15%;padding-top: 3%">
+                <b> {{data.projectName}} </b>
+                <p>{{data.projectDetail}}</p>
+                <p style="color: rgba(18, 138, 250, 0.938)"> {{data.skills}}</p>
+            </div>
+            <div class="col-md-1" style="padding-left: 15%;padding-top: 3%">
+                <p>{{data.projectSize}}</p>
+                <p>{{data.paymentMode}}</p>
+            </div>
+            <mat-divider></mat-divider>
+        </div>
+
+        <!-- data row ends here -->
+    </mat-card>
+</div>
