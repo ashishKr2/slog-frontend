@@ -19,4 +19,8 @@ export class ProjectService {
     bids(email): Observable<any> {
         return this.http.post('http://localhost:3000/bids', { email }, { headers: this.header() });
     }
+    myproject(username): Observable<any> {
+        return this.http.post('http://localhost:3000/myProject', { username }, { headers: this.header() });
+
+    }
 }

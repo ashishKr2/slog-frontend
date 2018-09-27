@@ -20,14 +20,15 @@ export class DashboardComponent implements OnInit {
         private router: ActivatedRoute,
         private toastr: ToastrService,
         private routes: Router,
-        private nav:NavbarService,
-      
+        private nav: NavbarService,
+
     ) { }
     ngOnInit() {
         this.loading = true;
         this.nav.show();
-        this.authservice.loadingObserable.subscribe(flag=> {
-            if(flag && this.authservice.activeWork && this.authservice.profile && this.authservice.dashboard){
+        this.authservice.loadingObserable.subscribe(flag => {
+            if (flag && this.authservice.activeWork && this.authservice.profile &&
+                this.authservice.dashboard && this.authservice.myProject) {
                 this.loading = false;
             }
         })
@@ -37,8 +38,8 @@ export class DashboardComponent implements OnInit {
             this.user1 = profile.user.username;
             this.authservice.dashboard = true;
             this.authservice.loadingObserable.next(true);
-           
+
         });
     }
-   
+
 }
