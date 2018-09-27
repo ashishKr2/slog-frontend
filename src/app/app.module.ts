@@ -54,6 +54,7 @@ import { ProjectService } from './shared/services/project.service';
         HomeModule,
         AppMaterialModule,
         SocialLoginModule,
+       
 
     ],
     providers: [

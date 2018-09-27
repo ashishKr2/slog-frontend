@@ -1,6 +1,6 @@
 
 footer{
-    /* margin-top:0px !important; */
+    /* margin-bottom:0px !important; */
     padding-bottom: 0%;
     margin-bottom: 0%;
     background-color:white;
@@ -20,4 +20,11 @@ footer{
   text-align: justify
 }
 
- 
+ /* .bottom{
+  bottom: 0px;
+  position: absolute;
+  margin-right: auto;
+  margin-left: auto;
+  left: 0px;
+  right: 0px;
+ } */

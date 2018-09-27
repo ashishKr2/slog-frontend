@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable, throwError } from 'rxjs';
+import { Observable, throwError, Subject, BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -8,6 +8,14 @@ import { Observable, throwError } from 'rxjs';
 export class AuthServices {
   authToken: any;
   user: any;
+  public profile: boolean = false;
+  public dashboard: boolean = false;
+  public myProject: boolean=false;
+  public inbox:boolean=false;
+  public activeWork:boolean=false;
+
+  public loadingObserable: Subject<boolean> = new BehaviorSubject<boolean>(false);
+
   constructor(private http: HttpClient) { }
   header() {
     return new HttpHeaders({ 'Content-Type': 'application/json; charset=utf-8' });

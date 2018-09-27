@@ -17,6 +17,8 @@ async ngOnInit() {
    data = await this.makeAsync(this.authService.getProfile());
   this.projectService.bids((data.user.email)).subscribe(data=>{
      this.datas=data;
+     this.authService.activeWork=true;
+     this.authService.loadingObserable.next(true);
    });
   
   }
