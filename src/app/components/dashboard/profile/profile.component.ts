@@ -9,21 +9,22 @@ import { SignupModel } from '../../../shared/models/signup-model';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
-  user: SignupModel[] = [];
+  profile: SignupModel[] = [];
   name: string;
   username: string;
   email: string;
   constructor(private authService: AuthServices,
     private toastr: ToastrService,
-    private router: Router
+    private router: Router,
   ) { }
 
   ngOnInit() {
     this.authService.getProfile().subscribe(profile => {
-      this.user = profile.user;
+      this.profile = profile.user;
       this.authService.profile = true;
       this.authService.loadingObserable.next(true);
     })
+
   }
 
 }

@@ -2,76 +2,78 @@
   <ngx-loading [show]="loading" [config]="{ animationType: ANIMATION_TYPES.cubeGrid,
       backdropBackgroundColour: 'rgba(255,255,255,0.3)', backdropBorderRadius: '20px',
       primaryColour: '#FF5733', secondaryColour: '#FF5733', tertiaryColour: '#FF5733' }"></ngx-loading>
-  
 </div>
+<!-- loading till it featch the posted project -->
 
 <div class="container">
+
   <div class="row">
     <div class="col-md-3">
       <mat-card>
-        <div class="row">
+        <div class="row" style="height:35px">
           <div class="col-md-1">
-            <mat-icon>search</mat-icon>
+            <mat-icon>add_location</mat-icon>
           </div>
           <div class="col-md-2 ">
             <mat-form-field class="width-form">
-              <input matInput placeholder="Search">
+              <input matInput placeholder="Location">
             </mat-form-field>
           </div>
         </div>
       </mat-card>
     </div>
+
     <div class="col-md-9">
       <mat-card>
         <div class="row">
-          <div class="col-md-1">
-            <mat-icon>add_location</mat-icon>
-          </div>
-          <form class="example-form">
-            <mat-form-field class="example-full-width">
-              <input type="text" placeholder="Location" aria-label="Number" matInput [formControl]="myControl"
-                [matAutocomplete]="auto">
-              <mat-autocomplete #auto="matAutocomplete">
-                <mat-option *ngFor="let option of options" [value]="option">
-                  {{option}}
-                </mat-option>
-              </mat-autocomplete>
+          <form class="search-form" (submit)="Search()">
+            <mat-form-field class="search-full-width form-group">
+              <input type="text" placeholder="Search with keyword" matInput class="form-control"  [(ngModel)]="keyword" [formControl]="key"
+                name="keyword">
             </mat-form-field>
+            <button mat-icon-button type="submit">
+              <mat-icon>search</mat-icon>
+            </button>
           </form>
         </div>
       </mat-card>
     </div>
+
   </div>
+  <!-- row one end ..... till search with keyword covered -->
+
   <div class="row" style="padding-top:5px">
-    <!-- left side -->
+    <!-- left side screen filter section -->
     <div class="col-md-3">
       <mat-card>
         <h5>Filter By</h5>
         <mat-form-field class="width-form">
-          <input matInput placeholder="abc">
+          <input matInput [(ngModel)]="PN.projectName" placeholder="Project Name">
         </mat-form-field>
-        <h5>Type</h5>
+        <h6>Job</h6>
         <mat-form-field class="width-form">
-          <input matInput placeholder="abc">
+          <input matInput [(ngModel)]="PD.projectDetail" placeholder="Project Detail">
         </mat-form-field>
-        <h5>Skills</h5>
+        <h6>Skills</h6>
         <mat-form-field class="width-form">
-          <input matInput placeholder="abc">
+          <input matInput [(ngModel)]="PS.skills" placeholder="Java, Node">
         </mat-form-field>
-        <h5>Language</h5>
+        <h6>Budget</h6>
         <mat-form-field class="width-form">
-          <input matInput placeholder="abc">
+          <input matInput [(ngModel)]="PB.projectSize" placeholder="$500">
         </mat-form-field>
       </mat-card>
     </div>
+
     <!-- right side -->
     <div class="col-md-9">
-      <mat-card>
+      <mat-card class="scroll">
         <div class="row">
           <div class="col-md-1" style="padding-right: 30%">
             <mat-form-field>
               <mat-select placeholder="Sort By">
-                <mat-option value="option">Option</mat-option>
+                <mat-option value="option">New to Old</mat-option>
+                <mat-option value="option">Old to New</mat-option>
               </mat-select>
             </mat-form-field>
           </div>
@@ -80,17 +82,20 @@
             </mat-paginator>
           </div>
         </div>
-        <!-- row 1 end here -->
+        <!-- row 2 end here -->
         <!-- data row -->
-        <div class="row" *ngFor="let job of jobs" style="padding-bottom: 3%;">
+        <div class="row" *ngFor="let job of jobs | filterBy:PN | filterBy:PD
+        | filterBy:PS | filterBy:PB "
+          style="padding-bottom: 3%;">
+
           <div class="col-md-8" style="padding-right:15%;padding-top: 3%">
-            <b>{{job.projectName}} </b>
+            <b>{{job.projectName }} </b>
             <p>{{job.projectDetail}}</p>
             <p style="color: rgba(18, 138, 250, 0.938)">{{job.skills}}</p>
           </div>
           <div class="col-md-1" style="padding-left: 15%;padding-top: 3%">
             <p>{{job.projectSize}}</p>
-            <button mat-raised-button style="background-color: rgb(82, 255, 47); color: white" (click)="bid(job._id)"><b>Bid</b></button>
+            <button mat-raised-button style="background-color: rgb(82, 255, 47); color: white" (click)="bid(job)"><b>Bid</b></button>
           </div>
           <mat-divider></mat-divider>
         </div>
@@ -100,4 +105,7 @@
     </div>
   </div>
   <!-- right side ends here -->
+  <!-- <div *ngFor="let job of jb | filter : searchText ">
+{{job}}
+  </div> -->
 </div>

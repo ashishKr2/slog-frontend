@@ -3,6 +3,7 @@ import { NavbarService } from '../shared/services/navbar.service';
 import { Router } from '@angular/router';
 import { AuthServices } from '../shared/services/auth.service';
 import { ToastrService } from 'ngx-toastr';
+import {ValidateService} from '../shared/services/validate.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -15,7 +16,8 @@ export class LoginComponent implements OnInit {
   constructor(public nav: NavbarService,
     private router: Router,
     private toastr: ToastrService,
-    private authService: AuthServices
+    private authService: AuthServices,
+    private validateService:ValidateService
   ) { }
 
   ngOnInit() {
@@ -42,6 +44,10 @@ export class LoginComponent implements OnInit {
     const user = {
       email: this.email,
       password: this.password
+    }
+    if(!this.validateService.validateEmail(this.email)){
+      this.toastr.info("Enter Valid email");
+      return false;
     }
     this.authService.login(user).subscribe(data => {
       if (data.success) {

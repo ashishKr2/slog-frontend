@@ -1,1 +1,54 @@
-inbox
+<div class="leftSide">
+  <div class="chat_heading">
+    <h5>
+      <span matBadge={{count}} matBadgeOverlap="false">
+        Owner-Bidder Chat Room
+      </span>
+    </h5>
+  </div>
+  <div class="list-user">
+    <mat-nav-list>
+      <mat-list-item *ngFor="let po of project_owner" style="height:30px">
+        <a (click)="chat(po)">{{ po }} ➳ Bid by me</a>
+        <mat-icon matListIcon>account_circle</mat-icon>
+        <mat-divider></mat-divider>
+      </mat-list-item>
+    </mat-nav-list>
+    <mat-nav-list>
+      <mat-list-item *ngFor="let pb of project_bidder" style="height:30px">
+        <a (click)="chat(pb)">{{ pb }} ➳ Bids your project</a>
+        <mat-icon matListIcon>account_circle</mat-icon>
+        <mat-divider></mat-divider>
+      </mat-list-item>
+    </mat-nav-list>
+  </div>
+
+</div>
+<div class="rightSide">
+  <div class="chat-username">
+    {{chatUsername}}
+  </div>
+  <mat-divider style="padding-bottom: 2%"></mat-divider>
+  <div class="list-chat">
+    <mat-list>
+      <mat-list-item *ngFor="let message of getChatData" style="height:30px">
+        <div *ngIf="active_username==message.sender; else reciver" class="sender-div">
+          <span class="tail-container"></span>
+          <p class="senderMsg">{{ message.message}}</p>
+        </div>
+        <ng-template #reciver>
+          <span class="head-container"></span>
+          <p class="reciverMsg">{{message.message}}</p>
+        </ng-template>
+      </mat-list-item>
+
+    </mat-list>
+  </div>
+  <form class="form-chat" (submit)="newMessage()">
+    <mat-form-field class="full-width form-group">
+      <input matInput required class="form-control" [(ngModel)]="message" name="message">
+    </mat-form-field>
+    <button mat-raised-button color="primary" type="submit">Send</button>
+
+  </form>
+</div>

@@ -9,3 +9,21 @@
 .white-text{
     color: white
 }
+.orange-color{
+    color:rgb(255, 123, 0);
+}
+#myVideo {
+    /* position: fixed; */
+    right: 0;
+    bottom: 0;
+    min-width: 100%; 
+    min-height: 10%;
+    max-height: 10%;
+}
+.content {
+    
+    bottom: 0;
+    color: #f1f1f1;
+    width: 100%;
+    position: absolute
+}

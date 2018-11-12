@@ -15,6 +15,8 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatOptionModule, MatSelectModule, MatRadioModule } from '@angular/material';
 import {MatDividerModule} from '@angular/material/divider';
+import {MatListModule} from '@angular/material/list';
+import {MatBadgeModule} from '@angular/material/badge';
 import 'hammerjs';
 @NgModule({
     imports: [
@@ -37,7 +39,9 @@ import 'hammerjs';
         MatSelectModule, MatRadioModule,
         MatButtonToggleModule, MatExpansionModule,
         MatTabsModule,
-        MatDividerModule
+        MatDividerModule,
+        MatListModule,
+        MatBadgeModule
     ],
     exports: [
         MatMenuModule,
@@ -59,7 +63,9 @@ import 'hammerjs';
         MatSelectModule, MatRadioModule,
         MatButtonToggleModule, MatExpansionModule,
         MatTabsModule,
-        MatDividerModule
+        MatDividerModule,
+        MatListModule,
+        MatBadgeModule
     ],
 })
 export class DashboardMaterialModule { }

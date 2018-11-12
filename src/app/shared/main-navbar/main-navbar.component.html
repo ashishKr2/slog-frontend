@@ -4,7 +4,7 @@
 
     <!-- Brand -->
     <a class="navbar-brand" routerLink="/home" href="" >
-      <img src="../../../assets/image/slog.png" width='50px' height="30px">
+      <img src="../../../assets/image/logo_s.png" width='50px' height="30px">
     </a>
 
     <!-- Collapse -->
@@ -25,30 +25,37 @@
         </li>
         
         <li class="nav-item">
-          <a class="nav-link" routerLink="/howItWorks" href="">How It Works</a>
+          <a class="nav-link" routerLink="/howItWorks" href="">How It Works
+            <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/browseJobs" href="">Browse Jobs</a>
+          <a class="nav-link" routerLink="/browseJobs" href="">Browse Jobs
+            <span class="sr-only">(current)</span></a>
         </li>
       </ul>
 
       <!-- Right -->
       <ul class="navbar-nav nav-flex-icons">
         <li class="nav-item" *ngIf="!authService.loggedIn()">
-          <a class="nav-link" routerLink="/login" href="">Login</a>
+          <a class="nav-link" routerLink="/login" href="">Login
+            <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item" *ngIf="!authService.loggedIn()">
-          <a class="nav-link" routerLink="/signup" href=""><i class="fa fa-sign-in"></i> Sign Up</a>
+          <a class="nav-link" routerLink="/signup" href=""><i class="fa fa-sign-in"></i> Sign Up
+            <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item" *ngIf="authService.loggedIn()">
-          <a class="nav-link" href="" routerLink="/dashboard" ><i class="fa fa-user"></i> Profile</a>
+          <a class="nav-link" href="" routerLink="/dashboard" ><i class="fa fa-user"></i> Profile
+            <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item" *ngIf="authService.loggedIn()">
-          <a class="nav-link" href="" routerLink="/login"  (click)="logoutSubmit()">Logout</a>
+          <a class="nav-link" href="" routerLink="/login"  (click)="logoutSubmit()">Logout
+            <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item postProject">
-          <a class="nav-link border border-light rounded"  routerLink="/postProject" href="">
+          <a class="nav-link border border-light rounded"  routerLink="/postProject" href="" style="color: white">
             <i class="fa fa-tasks"></i> Post a Project
+            <span class="sr-only">(current)</span>
           </a>
         </li>
       </ul>

@@ -101,6 +101,10 @@ export class SignupComponent implements OnInit {
       return false;
 
     }
+    if (!this.validateService.validateEmail(newUser.email)){
+      this.toastr.info('Please fill the valid email');
+      return false;
+    }
     this.authService.signup(newUser)
       .subscribe(data => {
         if (data.success) {
