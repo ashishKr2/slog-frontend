@@ -17,6 +17,7 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatListModule} from '@angular/material/list';
+
 @NgModule({
     imports: [
         MatMenuModule,

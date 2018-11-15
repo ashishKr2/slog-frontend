@@ -28,6 +28,7 @@ import { LoginSocial } from './shared/services/loginSocial.service';
 import { SocialLoginModule, AuthServiceConfig } from "angular-6-social-login";
 import {AuthGuard} from './guards/auth.guard';
 import { ProjectService } from './shared/services/project.service';
+import { ChatserviceProvider } from './shared/services/chatservice';
 
 @NgModule({
     declarations: [
@@ -59,7 +60,7 @@ import { ProjectService } from './shared/services/project.service';
 
     ],
     providers: [
-        NavbarService, AuthServices,AuthGuard,ProjectService,
+        NavbarService, AuthServices,AuthGuard,ProjectService,ChatserviceProvider,
         {
             provide: AuthServiceConfig,
             useFactory: LoginSocial

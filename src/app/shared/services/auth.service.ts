@@ -81,7 +81,7 @@ export class AuthServices {
   postProject(project): Observable<any> {
     return this.http.post('http://localhost:3000/postProject', project, { headers: this.header() });
   }
-  browseJob(): Observable<any> {
-    return this.http.post('http://localhost:3000/browseJob', { headers: this.header() });
+  browseJob(sl): Observable<any> {
+    return this.http.post('http://localhost:3000/browseJob', sl, { headers: this.header() });
   }
 }

@@ -30,6 +30,7 @@
 div.list-chat{
     height: 370px;
     overflow: auto;
+    scroll-behavior: auto
 }
 div.list-user{
     height: 438px;

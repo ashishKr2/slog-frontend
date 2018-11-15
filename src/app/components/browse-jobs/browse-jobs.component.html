@@ -72,13 +72,19 @@
           <div class="col-md-1" style="padding-right: 30%">
             <mat-form-field>
               <mat-select placeholder="Sort By">
-                <mat-option value="option">New to Old</mat-option>
-                <mat-option value="option">Old to New</mat-option>
+                <mat-option (click)="newToOld()">Newest First</mat-option>
+                <!-- <mat-option (click)="oldToNew()">Old to New</mat-option> -->
               </mat-select>
             </mat-form-field>
           </div>
           <div class="col-md-8">
-            <mat-paginator [length]="100" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]">
+
+            <mat-paginator [length]="length"
+            [pageSize]="pageSize"
+            [pageSizeOptions]="pageSizeOptions"
+            (page)="pageEvent($event)"
+            
+            >
             </mat-paginator>
           </div>
         </div>
@@ -95,7 +101,10 @@
           </div>
           <div class="col-md-1" style="padding-left: 15%;padding-top: 3%">
             <p>{{job.projectSize}}</p>
-            <button mat-raised-button style="background-color: rgb(82, 255, 47); color: white" (click)="bid(job)"><b>Bid</b></button>
+            <span *ngIf="job.username!=username">
+                <button mat-raised-button style="background-color: rgb(82, 255, 47); color: white" (click)="bid(job)"><b>Bid</b></button>
+
+            </span>
           </div>
           <mat-divider></mat-divider>
         </div>

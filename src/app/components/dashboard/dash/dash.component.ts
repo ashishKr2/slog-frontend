@@ -16,6 +16,9 @@ export class DashComponent implements OnInit {
       this.authService.dashboard=true;
       this.authService.loadingObserable.next(true);
     })
+
+    
   }
+  
 
 }

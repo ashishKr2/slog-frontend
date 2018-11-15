@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavbarService } from '../../shared/services/navbar.service';
-import { FormControl } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthServices } from '../../shared/services/auth.service';
 import { postProjectModel } from '../../shared/models/postProject-model';
 import { ProjectService } from '../../shared/services/project.service';
@@ -10,6 +10,7 @@ import { ANIMATION_TYPES } from 'ngx-loading';
 import { FilterPipe } from 'ngx-filter-pipe';
 import { Observable } from 'rxjs/Observable';
 import { Subscription } from 'rxjs';
+import { PageEvent } from '@angular/material';
 import "rxjs/add/operator/map";
 import "rxjs/add/operator/debounceTime";
 @Component({
@@ -19,7 +20,6 @@ import "rxjs/add/operator/debounceTime";
 })
 export class BrowseJobsComponent implements OnInit {
   myControl = new FormControl();
-
   jobs: postProjectModel[] = [];
   email: string;
   username: string;
@@ -34,6 +34,15 @@ export class BrowseJobsComponent implements OnInit {
   PD: any = { projectDetail: '' };
   PS: any = { skills: '' };
   PB: any = { projectSize: '' };
+  length: number;
+  pageSize = 10;
+  pageSizeOptions: number[] = [5, 10, 25];
+  skip: number = 0;
+  limit: number = 5;
+
+  // MatPaginator Output
+  // pageEvent: PageEvent;
+
   constructor(public nav: NavbarService,
     private authService: AuthServices,
     private projectService: ProjectService,
@@ -47,17 +56,27 @@ export class BrowseJobsComponent implements OnInit {
     this.loading = true;
     this.nav.show();
     //fetching all job details
-    this.authService.browseJob().subscribe(data => {
-      this.jobs = data;
-      // this.jb = data.map(x => x.projectName);
-      //  console.log("*//*/*/*/*", this.jobs);
-      this.loading = false;
-    });
+    this.allJob();
     this.authService.getProfile().subscribe(profile => {
       this.email = profile.user.email;
       this.username = profile.user.username;
-    })
+    });
+
   }
+  allJob() {
+    const sl = {
+      skip: this.skip,
+      limit: this.limit
+    }
+    this.authService.browseJob(sl).subscribe(data => {
+      this.jobs = data.jobs;
+      this.length = data.length;
+      // this.jb = data.map(x => x.projectName);
+      //  console.log("*//*/*/*/*", this.number);
+      this.loading = false;
+    });
+  }
+
   bid(job: any) {
     if (this.email) {
       const saveBid = {
@@ -97,6 +116,26 @@ export class BrowseJobsComponent implements OnInit {
         this.projectService.search(key).subscribe(data => {
           this.jobs = data;
         })
-      })
+      });
   }
+  pageEvent(event) {
+    const pageIndex = event.pageIndex;
+    this.limit = event.pageSize;
+    this.skip = pageIndex * this.limit;
+    this.sendSkipLimit();
+  }
+  sendSkipLimit() {
+    const sl = {
+      limit: this.limit,
+      skip: this.skip
+    }
+    this.authService.browseJob(sl).subscribe(data => {
+      this.jobs = data.jobs;
+    });
+  }
+  newToOld() {
+    this.allJob();
+  }
+ 
+
 }
